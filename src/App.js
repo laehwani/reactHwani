@@ -11,7 +11,27 @@ function App() {
 }
 
 function MyComp() {
-  return <h1>HI COMPONENT</h1>;
+  const address = "seoul";
+  const country = "korea";
+  const phone = "0101111111";
+  const age = 44;
+  const randomNumber = Math.random();
+
+  return (
+    <div>
+      <h1>번호 : {randomNumber}</h1>
+      <h3>랜덤번호 : {Math.ceil(randomNumber * 10)}</h3>
+      <p>
+        주소 : {address}
+        <br />
+        나라 : {country}
+        <br />
+        번호 : {phone}
+        <br />
+        나이 : {age}
+      </p>
+    </div>
+  );
 }
 
 export default App;
