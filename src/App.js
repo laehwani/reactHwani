@@ -1,38 +1,25 @@
-function MyComp2() {
-  let name = "화니";
-  let age = 33;
-  return (
-    <div>
-      <h1>Hwani React</h1>
-      <h2>드개재~</h2>
-      <p>
-        Hello {name}
-        <br />
-        {age} 입니다!
-        <br />
-        {age * 2}double 스코어!
-        <br />
-        {name + "선수입니다!"}
-      </p>
-    </div>
-  );
+function BigImage() {
+  return <h1>큰 이미지!</h1>;
+}
+
+function SmallImage() {
+  return <h1>작은 이미지!</h1>;
 }
 
 function App() {
-  // jsx 에서 태그 사용시 꼭 종료태그를 작성해야 함.
-  // 빈 요소이면 시작태그에서 종료
+  const number = Math.ceil(Math.random() * 100);
+  const isLarge = number > 50;
   return (
     <div>
-      <h1>hello react</h1>
-      <h2>hi react</h2>
-      <MyComp />
-      <MyComp2 />
+      <h1>난수 : {number}</h1>
+      <h1>{number > 50 ? "큰 수" : "작은 수"}</h1>
+      <div>{number > 50 ? <BigImage /> : <SmallImage />}</div>
+      <div>
+        {isLarge && <h1>큰 수임!!</h1>}
+        {isLarge || <h1>작은 수임!!</h1>}
+      </div>
     </div>
   );
-}
-
-function MyComp() {
-  return <h1>HI COMPONENT</h1>;
 }
 
 export default App;
