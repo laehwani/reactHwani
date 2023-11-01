@@ -6,30 +6,25 @@ import Nav from "react-bootstrap/Nav";
 import shoes from "./img/shoes.jpg";
 import * as PropTypes from "prop-types";
 
-function MyComp(props) {
-  console.log("My가 받은 props", props);
+function MyComp({ value, address }) {
   return (
     <div>
-      <h1>Hello</h1>
+      <h1>
+        {value}는 {address}에 산다
+      </h1>
     </div>
   );
 }
 
-MyComp.propTypes = { title: PropTypes.string };
+MyComp.propTypes = {
+  address: PropTypes.string,
+  value: PropTypes.string,
+};
 
 function App() {
   return (
     <>
-      <h1
-        className="note"
-        style={{ background: "skyblue", color: "white" }}
-        title="제목 요소"
-      >
-        Lorem volo.
-      </h1>
-      <p title="문단 요소">Hwan</p>
-      <MyComp title="내 컴포넌트" name={"흥민"} />
-      <MyComp title="I am 컴포넌트에요" name={"강인"} />
+      <MyComp value={"화니"} address={"신촌"} />
     </>
   );
 }
