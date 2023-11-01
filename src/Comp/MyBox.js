@@ -1,9 +1,7 @@
-export default function MyBox() {
+export function MyBox() {
   return (
     <div>
-      <h1>THIS IS MY BOX</h1>
+      <h1 className="boxClass">Lorem ipsum</h1>
     </div>
   );
 }
-
-export const address = "신촌";
