@@ -6,12 +6,11 @@ import Nav from "react-bootstrap/Nav";
 import shoes from "./img/shoes.jpg";
 import * as PropTypes from "prop-types";
 
-function MyComp({ value, address }) {
+function MyComp(style, text) {
   return (
     <div>
-      <h1>
-        {value}는 {address}에 산다
-      </h1>
+      <p>{text}</p>
+      <p>{text}</p>
     </div>
   );
 }
@@ -23,9 +22,9 @@ MyComp.propTypes = {
 
 function App() {
   return (
-    <>
-      <MyComp value={"화니"} address={"신촌"} />
-    </>
+    <div>
+      <MyComp />
+    </div>
   );
 }
 
