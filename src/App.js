@@ -1,15 +1,14 @@
-import { MyText } from "./Comp/MyText";
-import { MyBox } from "./Comp/MyBox";
-import { MyContainer } from "./Comp/MyContainer";
-import { MyNavbar } from "./Comp/MyNavbar";
+import { address, MyBox, MyContainer, MyElem, person } from "./MyBox";
 
 function App() {
+  console.log("name", name);
+  console.log("address", address);
+  console.log("person", person);
   return (
     <div>
-      <MyText />
       <MyBox />
+      <MyElem />
       <MyContainer />
-      <MyNavbar />
     </div>
   );
 }
