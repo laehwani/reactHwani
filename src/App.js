@@ -1,6 +1,6 @@
 import { MyComp } from "./Comp/MyComp";
 import { MyBox } from "./Comp/MyBox";
-import "../src/style/style1.css";
+import "./style/style1.module.css";
 import { MyContainer } from "./Comp/MyContainer";
 
 function App() {
