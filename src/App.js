@@ -1,24 +1,20 @@
-import React from "react";
-import { Button, useToast } from "@chakra-ui/react";
+import { Box, FormControl, Select } from "@chakra-ui/react";
 
 function App() {
-  const toast = useToast();
   return (
     <div>
-      <Button
-        onClick={() =>
-          toast({
-            title: "저장 완료",
-            description: "게시물이 저장되었습니다.",
-            duration: 2000,
-            position: "top-right",
-            isClosable: true,
-            status: "error",
-          })
-        }
-      >
-        토스트 띄우기
-      </Button>
+      <Box w={"480px"}>
+        <FormControl>
+          <Select placeholder="선택하세요">
+            {/*option[value=value$]*5>lorem1*/}
+            <option value="value1">Lorem.</option>
+            <option value="value2">Aliquid?</option>
+            <option value="value3">Fuga.</option>
+            <option value="value4">Facere.</option>
+            <option value="value5">Alias.</option>
+          </Select>
+        </FormControl>
+      </Box>
     </div>
   );
 }
