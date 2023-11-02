@@ -1,20 +1,27 @@
-import { Box, FormControl, Select } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  FormControl,
+  FormLabel,
+  Textarea,
+} from "@chakra-ui/react";
 
 function App() {
   return (
     <div>
-      <Box w={"480px"}>
-        <FormControl>
-          <Select placeholder="선택하세요">
-            {/*option[value=value$]*5>lorem1*/}
-            <option value="value1">Lorem.</option>
-            <option value="value2">Aliquid?</option>
-            <option value="value3">Fuga.</option>
-            <option value="value4">Facere.</option>
-            <option value="value5">Alias.</option>
-          </Select>
-        </FormControl>
-      </Box>
+      <Center>
+        <Box w={"480px"}>
+          <FormControl>
+            <FormLabel>본 문</FormLabel>
+            <Textarea placeholder="본문을 작성하세요" h={"500px"}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Accusamus aliquid aut consequatur consequuntur cumque dolores,
+              doloribus explicabo facilis hic magnam nemo optio quos recusandae
+              rem rerum, ut voluptatibus! Eligendi, similique.
+            </Textarea>
+          </FormControl>
+        </Box>
+      </Center>
     </div>
   );
 }
