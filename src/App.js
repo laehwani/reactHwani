@@ -1,23 +1,14 @@
-import {
-  Box,
-  Center,
-  FormControl,
-  FormLabel,
-  Switch,
-  Textarea,
-} from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
+import React from "react";
 
 function App() {
   return (
     <div>
-      <Center>
-        <Box w={"480px"}>
-          <FormControl display={"flex"} alignItems={"center"}>
-            <FormLabel mb={0}>알림을 받으시겠습니까?</FormLabel>
-            <Switch></Switch>
-          </FormControl>
-        </Box>
-      </Center>
+      <Box w={"480px"}>
+        <Image src={"https://bit.ly/dan-abramov"}></Image>
+        <Image src={"https://bit.ly/dan-abramov"} boxSize="150px"></Image>
+        <Image src={"https://bit.ly/dan-abramov"} borderRadius={"100%"}></Image>
+      </Box>
     </div>
   );
 }
