@@ -1,13 +1,14 @@
 import React from "react";
-import * as PropTypes from "prop-types";
-import { Button, Stack } from "@chakra-ui/react";
+import { Card, CardBody, Center } from "@chakra-ui/react";
 
-function MyLink({ to, children }) {
+function MyBox({ color, bg, children }) {
   return (
     <div>
-      <Button as="a" href={to} colorScheme="teal" variant="outline">
-        {children}
-      </Button>
+      <Center>
+        <Card color={color} bg={bg}>
+          <CardBody>{children}</CardBody>
+        </Card>
+      </Center>
     </div>
   );
 }
@@ -15,8 +16,15 @@ function MyLink({ to, children }) {
 function App() {
   return (
     <>
-      <MyLink to={"https://www.naver.com"}>naver 로 </MyLink>
-      <MyLink to={"https://www.daum.net"}>daum 으로</MyLink>
+      <MyBox color={"orange"} bg={"skyblue"}>
+        연습중
+      </MyBox>
+      <MyBox color={"red"} bg={"skyblue"}>
+        카드카드카드
+      </MyBox>
+      <MyBox color={"brown"} bg={"skyblue"}>
+        카드카드카드카드카드카드
+      </MyBox>
     </>
   );
 }
