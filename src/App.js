@@ -1,22 +1,25 @@
 import React, { useState } from "react";
-import { Input, Text } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 
 function App(props) {
-  const [number1, setNumber1] = useState(0);
-  const [number2, setNumber2] = useState(0);
-
-  function InputChange(e) {
-    setNumber1(Number(e.target.value));
+  const [number, setNumber] = useState(0);
+  function plusBtnClick() {
+    setNumber(number + 1);
   }
-  function InputPlus(e) {
-    setNumber2(Number(e.target.value));
+  function minusBtnClick() {
+    setNumber(number - 1);
   }
-
-  let result = number1 + number2;
   return (
     <div>
-      <Input type="number" onChange={InputChange}></Input> +
-      <Input type="number" onChange={InputPlus}></Input>={result}
+      <input type="number" value={number} />
+      <Box>
+        <Button onClick={plusBtnClick}></Button>
+        <Button onClick={minusBtnClick}></Button>
+      </Box>
+      <Box>
+        <Button onClick={() => setNumber(number + 1)}>+</Button>
+        <Button onClick={() => setNumber(number - 1)}>-</Button>
+      </Box>
     </div>
   );
 }
