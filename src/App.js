@@ -6,7 +6,7 @@ function MyComp({ to, someProp }) {
   return (
     <div>
       <div>
-        <a href={to[0]}> link!!!</a>
+        <a href={to[0]}> link!</a>
       </div>
       <div>
         <button onClick={someProp}>버튼</button>
