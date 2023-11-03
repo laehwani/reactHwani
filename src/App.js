@@ -9,11 +9,16 @@ function MyButton({ executeClick, children }) {
 }
 
 function App() {
-  console.log("hello");
+  function sayHello() {
+    console.log("hello");
+  }
+  function sayGreeting() {
+    console.log("greeting");
+  }
   return (
     <>
-      <MyButton executeClick={"hello"}></MyButton>
-      <MyButton executeClick={"greetiong"}></MyButton>
+      <MyButton executeClick={sayHello}>hello</MyButton>
+      <MyButton executeClick={sayGreeting}>greeting</MyButton>
     </>
   );
 }
