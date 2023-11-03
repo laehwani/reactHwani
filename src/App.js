@@ -1,29 +1,34 @@
-// import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
+import { Box, Button, Center } from "@chakra-ui/react";
 
 function App(props) {
+  // event bubbling 을 알아보자
   function handleClick(e) {
-    // 브라우저가 해야하는 기본 기능을 취소함.
-    e.preventDefault();
-    console.log("다른 일을 시킴");
-  }
-
-  function handleSubmit(e) {
-    // 기본 기능 취소
-    e.preventDefault();
-    console.log("다른 일을 시킴");
+    // stopPropagation 는 event bubbling 을 막는 메소드
+    e.stopPropagation();
+    console.log(e.target.className);
   }
   return (
     <div>
-      <a href="https://www.naver.com" onClick={handleClick}>
-        네이버
-      </a>
-      <div>
-        <form action="https://www.daum.net/search" onSubmit={handleClick}>
-          <input type="text" name="q" />
-          <button>검색</button>
-        </form>
-      </div>
+      <Center
+        onClick={handleClick}
+        className="outerBox"
+        w={"200px"}
+        h={"200px"}
+        bg={"gold"}
+      >
+        <Center
+          onClick={handleClick}
+          className="innerBox"
+          w={"100px"}
+          h={"100px"}
+          bg={"blue"}
+        >
+          <Button className="btn" onClick={handleClick} colorScheme="yellow">
+            버튼
+          </Button>
+        </Center>
+      </Center>
     </div>
   );
 }
