@@ -1,30 +1,27 @@
 import React from "react";
-import { Card, CardBody, Center } from "@chakra-ui/react";
+import { findAllByDisplayValue } from "@testing-library/react";
 
-function MyBox({ color, bg, children }) {
+function MyComp({ to, someProp }) {
+  someProp();
   return (
     <div>
-      <Center>
-        <Card color={color} bg={bg}>
-          <CardBody>{children}</CardBody>
-        </Card>
-      </Center>
+      <div>
+        <a href={to[0]}> link!!!</a>
+      </div>
+      <div>
+        <button onClick={someProp}>버튼</button>
+      </div>
     </div>
   );
 }
 
 function App() {
+  function func1() {
+    console.log("fun1 실행됨!!");
+  }
   return (
     <>
-      <MyBox color={"orange"} bg={"skyblue"}>
-        연습중
-      </MyBox>
-      <MyBox color={"red"} bg={"skyblue"}>
-        카드카드카드
-      </MyBox>
-      <MyBox color={"brown"} bg={"skyblue"}>
-        카드카드카드카드카드카드
-      </MyBox>
+      <MyComp to={["https://www.naver.com"]} someProp={func1}></MyComp>
     </>
   );
 }
