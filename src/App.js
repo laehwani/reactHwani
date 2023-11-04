@@ -7,7 +7,7 @@ function App(props) {
   let logo = "ReactBlog";
   let post = "강남 우동 맛집";
   let [titleName, handleBtnChange] = useState([
-    "남자 코트 추천",
+    "남성 코트 추천",
     "강남 우동맛집",
     "파이썬 독학",
   ]);
