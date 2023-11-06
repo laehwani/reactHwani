@@ -1,19 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 function App(props) {
-  // HOOK : use 로 시작하는 함수
-  // HOOK은 컴포넌트 상단에 위치해야함.
-  // 조건문이나, 반복문, 중첩된 함수안에는 작성하면 안된다.
+  const [number, setNumber] = useState(0);
 
-  if (true) {
-    // hook 호출 코드 작성 불가
+  if (number > 5) {
+    const [text, setText] = useState("");
   }
-  for (let i = 0; i < 3; i++) {
-    // hook 호출 코드 작성 불가
-  }
-  function handle() {
-    // hook 호출 코드 작성 불가
-  }
+  // 위에 코드는 에러가 뜬다.
+  // useState (hook) 이 조건문안에 들어갔기 때문이다.
+
   return <div></div>;
 }
 
