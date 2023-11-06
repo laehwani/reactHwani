@@ -1,34 +1,28 @@
-import React from "react";
-import { Button, List, ListItem } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Button, Input, List, ListItem } from "@chakra-ui/react";
 
-function App() {
-  const arr = ["pizza", "돈까스", "햄버거", "김치찌개"];
-  const arr2 = ["손흥민", "이강인", "김민재"];
-  const arr3 = ["피자", "햄벅", "핫바"];
+function App(props) {
+  const [coffees, setCoffees] = useState(["라떼"]);
+  const [text, setText] = useState("");
 
-  const listItems = arr.map((item, index) => (
-    <ListItem key={index}>{item}</ListItem>
-  ));
-  // const listNames = arr2.map((name) => <ListItem>{name}</ListItem>);
-  // const listFood = arr3.map((food) => <ListItem>{food}</ListItem>);
+  function 버튼클릭() {
+    const newCoffees = [...coffees];
+    newCoffees.push(text);
+    setCoffees(newCoffees);
+    console.log(coffees);
+    console.log(newCoffees);
+  }
 
   return (
     <div>
+      <Input value={text} onChange={(e) => setText(e.target.value)}></Input>
+      <Button onClick={버튼클릭}>추가버튼</Button>
+
       <List>
-        <ListItem>{listItems}</ListItem>
-      </List>
-      <List>
-        {/*<ListItem>{listNames}</ListItem>*/}
-        {arr2.map((e, i) => (
-          <ListItem key={i}>{e}</ListItem>
+        {coffees.map((c, i) => (
+          <ListItem key={i}>{c}</ListItem>
         ))}
       </List>
-      <List>
-        {arr3.map((e, i) => (
-          <ListItem key={i}>{e}</ListItem>
-        ))}
-      </List>
-      <Button>리스트변경</Button>
     </div>
   );
 }
