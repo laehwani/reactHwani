@@ -4,11 +4,17 @@ import data from "bootstrap/js/src/dom/data";
 import { Box, Select, Spinner, Text } from "@chakra-ui/react";
 
 function App(props) {
+  const [employeeIdList, setEmployeeIdList] = useState([]);
   const [employeeId, setEmployeeId] = useState(0);
   const [employee, setEmployee] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
-    if (employeeId != 0) {
+    axios("/api/main/sub6)".then((r) => setEmployeeIdList(r.data)));
+  }, []);
+
+  useEffect(() => {
+    if (setIsLoading(true)) {
       axios
         .get("/api/main1/sub5?id=" + employeeId)
         .then((r) => r.data)
@@ -17,6 +23,27 @@ function App(props) {
         .finally(() => setIsLoading(false));
     }
   }, [employeeId]);
+
+  let textContent = null;
+  if (isLoading) {
+    textContent = <Spinner />;
+  } else {
+    if (employee === null) {
+      textContent = <Text>다른 직원 번호를 선택해주세요.</Text>;
+    } else {
+      textContent = (
+        <Text>
+          <h4>직원 번호 : {employeeId}</h4>
+          <p>
+            직원 이름 : {employee.firstName}
+            {employee.lastName}
+          </p>
+          <p>{employee.birthDate}</p>
+          <p>{employee.notes}</p>
+        </Text>
+      );
+    }
+  }
 
   return (
     // 직원 번호를 선택하면 직원의 이름이 출력
@@ -28,30 +55,21 @@ function App(props) {
         onChange={(e) => setEmployeeId(e.target.value)}
       >
         {/*option[value=$]{$}*10*/}
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
+        {/*<option value="1">1</option>*/}
+        {/*<option value="2">2</option>*/}
+        {/*<option value="3">3</option>*/}
+        {/*<option value="4">4</option>*/}
+        {/*<option value="5">5</option>*/}
+        {/*<option value="6">6</option>*/}
+        {/*<option value="7">7</option>*/}
+        {/*<option value="8">8</option>*/}
+        {/*<option value="9">9</option>*/}
+        {/*<option value="10">10</option>*/}
+        {employeeIdList.map((id) => (
+          <option value={id}>{id}</option>
+        ))}
       </Select>
-      <Box>
-        {isLoading && <Spinner></Spinner>}
-        {isLoading || (
-          <div>
-            {employee === null ? (
-              <Text>조회한 직원이 없습니다.</Text>
-            ) : (
-              // ((<Text>직원 이름 : {LastName}</Text>),
-              <Text>직원 이름 : {employee.firstName}</Text>
-            )}
-          </div>
-        )}
-      </Box>
+      <Box>{textContent}</Box>
     </div>
   );
 }
