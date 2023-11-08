@@ -2,33 +2,52 @@ import React from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Outlet,
   Route,
   RouterProvider,
 } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 
+function HomeComponent() {
+  return (
+    <div>
+      <Box>
+        공통된요소들 <Outlet></Outlet>
+      </Box>
+    </div>
+  );
+}
+
+function Acomp() {
+  return (
+    <div>
+      <Box>A 컴포넌트</Box>
+    </div>
+  );
+}
+
+function Bcomp() {
+  return (
+    <div>
+      <Box>B 컴포넌트</Box>
+    </div>
+  );
+}
+
 const routes = createBrowserRouter(
   createRoutesFromElements(
-    <>
-      <Route path="/" element={<Box>home page</Box>}></Route>
-      <Route path="/path1" element={<Box>경로1</Box>}></Route>
-      <Route path="/path2" element={<Box>경로2</Box>}></Route>
-      <Route path="/path3" element={<Box>경로3</Box>}></Route>
-      <Route path="/main1/path1" element={<Box>경로4</Box>}></Route>
-      <Route path="/main1/path2" element={<Box>경로5</Box>}></Route>
-      <Route path="/main2">
-        <Route path="path1" element={<Box>경로6</Box>}></Route>
-        <Route path="path2" element={<Box>경로7</Box>}></Route>
-        <Route path="path3">
-          <Route path="sub1" element={<Box>경로7</Box>}></Route>
-          <Route path="sub1" element={<Box>경로7</Box>}></Route>
-        </Route>
-      </Route>
-    </>,
+    <Route path="/" element={<HomeComponent />}>
+      <Route path="apath" element={<Acomp></Acomp>}></Route>
+      <Route path="bpath" element={<Bcomp></Bcomp>}></Route>
+    </Route>,
   ),
 );
 function App(props) {
-  return <RouterProvider router={routes} />;
+  return (
+    <div>
+      <RouterProvider router={routes}></RouterProvider>
+    </div>
+  );
 }
 
 export default App;
