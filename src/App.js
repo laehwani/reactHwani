@@ -10,11 +10,12 @@ function App(props) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    axios("/api/main/sub6)".then((r) => setEmployeeIdList(r.data)));
+    axios("/api/main1/sub6").then((r) => setEmployeeIdList(r.data));
   }, []);
 
   useEffect(() => {
-    if (setIsLoading(true)) {
+    if (employeeId != null) {
+      setIsLoading(true);
       axios
         .get("/api/main1/sub5?id=" + employeeId)
         .then((r) => r.data)
